@@ -5,6 +5,7 @@ import Header from './components/header/header';
 import { LightTheme, DarkTheme } from './components/common/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ThemeContext from './components/header/switcher/context';
+import PopCocktails from './components/popCocktails/popCocktails';
 
 function App() {
   const [theme, setTheme] = useState(LightTheme);
@@ -14,17 +15,18 @@ function App() {
   
   return (
     <ThemeContext.Provider value={{theme: theme, switcher: switcherTheme}}>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
           <Routes>
             <Route path='/' element={<Header title='COCKTAIL TRIP'/>}>
-              <Route path='/cocktails' element={<Header title='COCKTAIL TRIP'/>} />
-              <Route path='/ingredients' element={<Header title='COCKTAIL TRIP'/>} />
-              <Route path='/about' element={<Header title='COCKTAIL TRIP'/>} />
+              <Route path='/' element={<PopCocktails />} />
+              <Route path='/cocktails' element={<div></div>} />
+              <Route path='/ingredients' element={<div></div>} />
+              <Route path='/about' element={<div></div>} />
             </Route>
           </Routes>
-        </ThemeProvider>
-      </BrowserRouter>
+        </BrowserRouter>
+      </ThemeProvider>
     </ThemeContext.Provider>
   );
 }
