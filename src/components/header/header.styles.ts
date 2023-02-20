@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import { device } from '../common/breakpoints';
 import { fontSize, fontFamily } from '../common/styles';
 import '../../index.css';
 
@@ -37,7 +35,7 @@ export const TitleText = styled.h3`
 `;
 
 export const NavigationContainer = styled.div`
-    width: 400px;
+    width: 300px;
     height: 50px;
     display: flex;
     justify-content: space-between;

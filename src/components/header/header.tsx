@@ -17,8 +17,7 @@ const Header = (props: any) => {
                 </TitleContainer>
                 <NavigationContainer>
                     <NavButton to='/' text='Home'/>
-                    <NavButton to='/cocktails' text='Cocktails'/>
-                    <NavButton to='/ingredients' text='Ingredients'/>
+                    <NavButton to={`/cocktails/${`a`}`} text='Cocktails'/>
                     <NavButton to='/about' text='About'/>
                 </NavigationContainer>
                 <RightContainer>

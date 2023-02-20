@@ -1,19 +1,19 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { getPopCocktails } from '../slices/popCocktailsSlice';
 import { API_KEY, cocktailsApi } from '../../axios/api';
 import { ResponseGenerator } from './saga.interface';
+import { getCocktailsByLetters } from '../slices/cocktailsByLettersSlice';
 
-function* popCocktailsSaga() {
-    yield takeEvery('popCocktails/startPopCocktails', 
+function* cocktailsByAlphabetSaga() {
+    yield takeEvery('cocktailsByLetters/startCocktailsByLetters', 
         function* ({payload}: any) {
             const data: ResponseGenerator = yield call(async () => await cocktailsApi({
                 method: 'get',
                 url: `/${API_KEY}/${payload}`,
             })
             .then(response => (response.data)));
-            yield put(getPopCocktails(data));
+            yield put(getCocktailsByLetters(data));
         }
     );
 }
 
-export default popCocktailsSaga;
+export default cocktailsByAlphabetSaga;

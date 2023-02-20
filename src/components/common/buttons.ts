@@ -17,6 +17,10 @@ export const NavBtn = styled.button`
         color: ${props => props.theme.color.underline};
         border-bottom: 1px solid ${props => props.theme.color.text};
     }
+
+    &:focus {
+        color: ${props => props.theme.color.underline};
+    }
 `;
 
 export const SighBtn = styled.button`

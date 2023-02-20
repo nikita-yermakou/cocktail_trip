@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { startCocktail } from '../../../redux/slices/cocktailSlice';
 import { useAppDispatch, useAppSelector } from '../../common/hooks';
-import { CocktailContainer, CocktailName, IngredientsContainer, IngredientsTitle, Instruction, InstructionBox, InstructionTitle, Picture, PictureBox } from './singleCocktail.styles';
+import Ingredient from '../../ingredients/ingredient/ingredient';
+import { Container, Name, Glass, GlassTitle, ItemsContainer, Title, Description, DescriptionBox, DescriptionTitle, Picture, PictureBox } from './singleCocktail.styles';
 
-const SingleCocktail = (props: any) => {
+const SingleCocktail = () => {
     const {id} = useParams();
-    console.log('props', id);
 
     const dispatch = useAppDispatch();
 
@@ -14,34 +14,35 @@ const SingleCocktail = (props: any) => {
         dispatch(startCocktail(`lookup.php?i=${id}`));
     }, []);
 
-    const cocktail = useAppSelector((state: any) => state.cocktail.cocktail);
-    const data = cocktail.drinks;
-    console.log('data', data)
+    const cocktail = useAppSelector((state: any) => state.cocktail.cocktail).drinks;
 
     return(
         <>
-        {data.map((item: any) => (
-            <>
-                <CocktailContainer>
+        {cocktail?.map((item: any) => (
+            <>  
+                <Name>{item.strDrink}</Name>
+                <Container>
                     <PictureBox>
-                        <CocktailName></CocktailName>
-                        <Picture img={}/>
+                        <Picture src={item.strDrinkThumb}/>
                     </PictureBox>
-                    <InstructionBox>
-                        <InstructionTitle></InstructionTitle>
-                        <Instruction></Instruction>
-                    </InstructionBox>
-                </CocktailContainer>
-                <CocktailContainer>
-                    <IngredientsTitle></IngredientsTitle>
-                    <IngredientsContainer>
-                        {props.store.drinks?.map((cocktail: any) => (
-                        <Link key={cocktail.idDrink} to={`/cocktail/${cocktail.idDrink}`}>
-                            <Cocktail name={cocktail.strDrink} id={cocktail.idDrink} img={cocktail.strDrinkThumb}/>
-                        </Link>
-                        ))}
-                    </IngredientsContainer>
-                </CocktailContainer>
+                    <DescriptionBox>
+                        <DescriptionTitle>Recipe</DescriptionTitle>
+                        <Description>{item.strInstructions}</Description>
+                        <GlassTitle>Preferred glass</GlassTitle>
+                        <Glass>{item.strGlass}</Glass>
+                    </DescriptionBox>
+                </Container>
+                <Title>Ingredients</Title>
+                <Container>
+                    <ItemsContainer>
+                        {Object.keys(item)?.map((key) => ((key.slice(0, 13) === 'strIngredient' && item[key] != null)) && 
+                        <>
+                            <Link to={`/ingredient/${item[key]}`} key={item[key]}>
+                                <Ingredient name={item[key]} measure={item[`strMeasure` + key.slice(13)]}/>
+                            </Link>
+                        </> )}
+                    </ItemsContainer>
+                </Container>
             </>
         ))}
         </>

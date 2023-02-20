@@ -8,7 +8,6 @@ const Cocktails = (props: any) => {
         <CocktailsWrap>
             <CocktailsTitle>{props.title}</CocktailsTitle>
             <CocktailsContainer>
-                {console.log('drinks', props.store.drinks)}
                 {props.store.drinks?.map((cocktail: any) => (
                     <Link key={cocktail.idDrink} to={`/cocktail/${cocktail.idDrink}`}>
                         <Cocktail name={cocktail.strDrink} id={cocktail.idDrink} img={cocktail.strDrinkThumb}/>

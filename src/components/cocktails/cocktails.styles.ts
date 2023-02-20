@@ -24,7 +24,6 @@ export const CocktailsContainer = styled.div`
     gap: 1rem;
 `;
 
-
 export const CocktailContainer = styled.div`
     width: 300px;
     background-color: ${props => props.theme.color.cardsBg};
@@ -41,7 +40,4 @@ export const Name = styled.h3`
     font-size: ${fontSize.fontM};
 `;
 
-export const Id = styled.p`
-    font-size: ${fontSize.fontS};
-`;
 

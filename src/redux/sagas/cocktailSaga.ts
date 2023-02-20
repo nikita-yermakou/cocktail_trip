@@ -11,7 +11,6 @@ function* cocktailSaga() {
                 url: `/${API_KEY}/${payload}`,
             })
             .then(response => (response.data)));
-            console.log(data);
             yield put(getCocktail(data));
         }
     );
