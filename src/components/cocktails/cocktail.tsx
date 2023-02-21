@@ -1,7 +1,8 @@
 import React from 'react';
+import { CocktailProps } from './cocktails.interface';
 import { CocktailContainer, CocktailImg, Name } from './cocktails.styles';
 
-const Cocktail = (props: any) => {
+const Cocktail = (props: CocktailProps) => {
 
     return(
         <CocktailContainer>

@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { StateIF } from './slices.interfaces';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CocktailIF, RandomStateIF } from './slices.interfaces';
 
-const initialState: StateIF = {
+const initialState: RandomStateIF = {
     randomCocktails: [],
     isLoading: false
 }
@@ -10,10 +10,10 @@ const randomCocktailsSlice = createSlice({
     name: 'randomCocktails',
     initialState,
     reducers: {
-        startRandomCocktails: (state, action) => {
+        startRandomCocktails: (state, action: PayloadAction<string>) => {
             state.isLoading = true;
         },
-        getRandomCocktails: (state, action) => {
+        getRandomCocktails: (state, action: PayloadAction<CocktailIF[]>) => {
             state.isLoading = false;
             state.randomCocktails = action.payload;
         }

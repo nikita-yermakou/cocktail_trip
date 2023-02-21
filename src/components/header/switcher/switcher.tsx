@@ -3,7 +3,7 @@ import { SwitcherImg } from "./switcher.styles";
 import { Img } from '../../common/styles';
 import { useTheme } from './context';
 
-const Switcher = () => {
+const Switcher: React.FC = () => {
     const currentContext = useTheme();
 
     return(

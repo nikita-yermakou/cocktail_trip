@@ -1,36 +1,34 @@
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../common/hooks';
-import Ingredient from '../../ingredients/ingredient/ingredient';
-import { Container, Name, Glass, GlassTitle, ItemsContainer, Title, Description, DescriptionBox, DescriptionTitle, Picture, PictureBox, TypeTitle, Type } from '../../cocktails/cocktail/singleCocktail.styles';
+import { Container, Name, ItemsContainer, Title, Description, DescriptionBox, DescriptionTitle, Picture, PictureBox, TypeTitle, Type } from '../../cocktails/cocktail/singleCocktail.styles';
 import { startIngredient } from '../../../redux/slices/ingredientSlice';
 import { startCocktailsByIngredient } from '../../../redux/slices/cocktailsByIngredientSlice';
 import Cocktail from '../../cocktails/cocktail';
 import { CocktailLink } from '../../cocktails/cocktails.styles';
+import Loader from '../../loader/loader';
 
-const SingleIngredient = () => {
+const SingleIngredient: React.FC = () => {
     const {name} = useParams();
 
     const dispatch = useAppDispatch();
-
-    console.log('name', name);
-
+    
     useEffect(() => {
         dispatch(startIngredient(`search.php?i=${name}`));
         dispatch(startCocktailsByIngredient(`filter.php?i=${name}`));
     }, []);
 
-    const ingredient = useAppSelector((state: any) => state.ingredient.ingredient);
+    const ingredient = useAppSelector((state) => state.ingredient.ingredient);
     const cocktailsByIngredient = useAppSelector((state: any) => state.cocktailsByIngredient.cocktailsByIngredient).drinks;
-
-    console.log('ingredient', ingredient);
-    console.log('cocktailsByIngredient', cocktailsByIngredient);
+    const loading = useAppSelector((state) => state.ingredient.isLoading);
 
     return(
         <>
-        {ingredient?.map((item: any) => (
+        {loading ? 
+        <Loader /> :
+        <>
+            {ingredient?.map((item: any) => (
             <>  
-                {console.log(item)}
                 <Name>{item.strIngredient}</Name>
                 <Container>
                     <PictureBox>
@@ -56,6 +54,8 @@ const SingleIngredient = () => {
                 </Container>
             </>
         ))}
+        </>
+        }
         </>
     )
 }

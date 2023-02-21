@@ -27,6 +27,7 @@ export const CocktailsContainer = styled.div`
 
 export const CocktailContainer = styled.div`
     width: 300px;
+    min-height: 370px;
     background-color: ${props => props.theme.color.cardsBg};
     cursor: pointer;
     padding-bottom: .3rem;
