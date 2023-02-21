@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../common/hooks';
+import { IngredientProps } from './ingredient.interface';
 import { IngredientContainer, IngredientImg, IngredientName } from './ingredient.styles';
 
-const Ingredient = (props: any) => {
+const Ingredient = (props: IngredientProps) => {
 
     return(
         <IngredientContainer>

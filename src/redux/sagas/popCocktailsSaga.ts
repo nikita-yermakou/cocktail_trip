@@ -7,7 +7,7 @@ function* popCocktailsSaga() {
     yield takeEvery('popCocktails/startPopCocktails', 
         function* ({payload}: any) {
             try {
-                const data: ResponseGenerator = yield call(async () => await cocktailsApi({
+                const data: ResponseGenerator[] = yield call(async () => await cocktailsApi({
                     method: 'get',
                     url: `/${API_KEY}/${payload}`,
                 })

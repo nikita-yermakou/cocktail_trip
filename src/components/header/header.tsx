@@ -6,8 +6,9 @@ import SignUp from './btns/signUp';
 import SignIn from './btns/signIn';
 import Switcher from './switcher/switcher';
 import { Outlet } from 'react-router-dom';
+import { HeaderProps } from './header.interface';
 
-const Header = (props: any) => {
+const Header = (props: HeaderProps): JSX.Element => {
     return(
         <>
             <HeaderContainer>

@@ -1,5 +1,6 @@
 import { CocktailLink, CocktailsContainer, CocktailsTitle, CocktailsWrap } from './cocktails.styles';
 import Cocktail from './cocktail';
+import { CocktailsProps } from './cocktails.interface';
 
 const Cocktails = (props: any) => {
 

@@ -4,9 +4,10 @@ import { startCocktail } from '../../../redux/slices/cocktailSlice';
 import { useAppDispatch, useAppSelector } from '../../common/hooks';
 import Ingredient from '../../ingredients/ingredient/ingredient';
 import { IngredientLink } from '../../ingredients/ingredient/ingredient.styles';
+import Loader from '../../loader/loader';
 import { Container, Name, Glass, GlassTitle, ItemsContainer, Title, Description, DescriptionBox, DescriptionTitle, Picture, PictureBox } from './singleCocktail.styles';
 
-const SingleCocktail = () => {
+const SingleCocktail: React.FC = () => {
     const {id} = useParams();
 
     const dispatch = useAppDispatch();
@@ -16,10 +17,14 @@ const SingleCocktail = () => {
     }, []);
 
     const cocktail = useAppSelector((state: any) => state.cocktail.cocktail).drinks;
+    const loading = useAppSelector((state) => state.cocktail.isLoading);
 
     return(
         <>
-        {cocktail?.map((item: any) => (
+        {loading ? 
+        <Loader /> :
+        <>
+            {cocktail?.map((item: any) => (
             <>  
                 <Name>{item.strDrink}</Name>
                 <Container>
@@ -46,6 +51,9 @@ const SingleCocktail = () => {
                 </Container>
             </>
         ))}
+        </>
+        }
+        
         </>
     )
 }

@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { StateIF } from "./slices.interfaces";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { CocktailIF, IngredientStateIF } from './slices.interfaces';
 
-const initialState: StateIF = {
+const initialState: IngredientStateIF = {
     ingredient: [],
     isLoading: false
 }
@@ -10,14 +10,12 @@ const ingredientSlice = createSlice({
     name: 'ingredient',
     initialState,
     reducers: {
-        startIngredient: (state, action) => {
+        startIngredient: (state, action: PayloadAction<string>) => {
             state.isLoading = true;
-            console.log('slice1');
         },
-        getIngredient: (state, action) => {
+        getIngredient: (state, action: PayloadAction<CocktailIF[]>) => {
             state.isLoading = false;
-            state.ingredient = action.payload
-            console.log('slice2');
+            state.ingredient = action.payload;
         }
     }
 });

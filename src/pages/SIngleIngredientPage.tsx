@@ -1,6 +1,6 @@
 import SingleIngredient from "../components/ingredients/singleIngredient/singleIngredient"
 
-const SingleIngredientPage = () => {
+const SingleIngredientPage: React.FC = () => {
 
     return(
         <SingleIngredient />

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CocktailIF, StateIF } from './slices.interfaces';
+import { CocktailIF, PopStateIF } from './slices.interfaces';
 
-const initialState: StateIF = {
+const initialState: PopStateIF = {
     popCocktails: [],
     isLoading: false
 }
@@ -13,7 +13,7 @@ const popCocktailsSlice = createSlice({
         startPopCocktails: (state, action: PayloadAction<string>) => {
             state.isLoading = true;
         },
-        getPopCocktails: (state, action) => {
+        getPopCocktails: (state, action: PayloadAction<CocktailIF[]>) => {
             state.isLoading = false;
             state.popCocktails = action.payload;
         }

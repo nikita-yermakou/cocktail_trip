@@ -1,6 +1,6 @@
 import SingleCocktail from "../components/cocktails/cocktail/singleCocktail";
 
-const SingleCocktailPage = () => {
+const SingleCocktailPage: React.FC = () => {
 
     return(
         <SingleCocktail />
