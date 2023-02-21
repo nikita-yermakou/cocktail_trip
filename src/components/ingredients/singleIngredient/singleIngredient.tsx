@@ -6,6 +6,7 @@ import { Container, Name, Glass, GlassTitle, ItemsContainer, Title, Description,
 import { startIngredient } from '../../../redux/slices/ingredientSlice';
 import { startCocktailsByIngredient } from '../../../redux/slices/cocktailsByIngredientSlice';
 import Cocktail from '../../cocktails/cocktail';
+import { CocktailLink } from '../../cocktails/cocktails.styles';
 
 const SingleIngredient = () => {
     const {name} = useParams();
@@ -47,9 +48,9 @@ const SingleIngredient = () => {
                     <ItemsContainer>
                         {cocktailsByIngredient?.map((item: any) => (
                         <>
-                            <Link to={`/cocktail/${item.idDrink}`} key={item.idDrink}>
+                            <CocktailLink to={`/cocktail/${item.idDrink}`} key={item.idDrink}>
                                 <Cocktail name={item.strDrink} id={item.idDrink} img={item.strDrinkThumb}/>
-                            </Link>
+                            </CocktailLink>
                         </> ))}
                     </ItemsContainer>
                 </Container>

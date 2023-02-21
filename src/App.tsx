@@ -12,6 +12,7 @@ import SingleIngredientPage from './pages/SIngleIngredientPage';
 import CocktailsPage from './pages/CocktailsPage';
 import AboutPage from './pages/AboutPage';
 import NotFoundPage from './pages/NotfoundPage';
+import Footer from './components/footer/footer';
 
 function App() {
   const [theme, setTheme] = useState(LightTheme);
@@ -25,7 +26,12 @@ function App() {
         <AppContainer>
           <BrowserRouter>
             <Routes>
-              <Route path='/' element={<Header title='COCKTAIL TRIP'/>}>
+              <Route path='/' element={
+                <>
+                  <Header title='COCKTAIL TRIP'/>
+                  <Footer text='Cocktail trip, 2023'/>
+                </>
+              }>
                 <Route path='/' element={<HomePage/>} />
                 <Route path='/cocktails/:letter' element={<CocktailsPage />} />
                 <Route path='/about' element={<AboutPage />} />

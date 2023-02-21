@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { StateIF } from "./slices.interfaces";
 
-const initialState: any = {
+const initialState: StateIF = {
     ingredient: [],
     isLoading: false
 }

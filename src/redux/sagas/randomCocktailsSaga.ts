@@ -6,12 +6,17 @@ import { ResponseGenerator } from './saga.interface';
 function* randomCocktailsSaga() {
     yield takeEvery('randomCocktails/startRandomCocktails', 
         function* ({payload}: any) {
-            const data: ResponseGenerator = yield call(async () => await cocktailsApi({
-                method: 'get',
-                url: `/${API_KEY}/${payload}`,
-            })
-            .then(response => (response.data)));
-            yield put(getRandomCocktails(data));
+            try {
+                const data: ResponseGenerator = yield call(async () => await cocktailsApi({
+                    method: 'get',
+                    url: `/${API_KEY}/${payload}`,
+                })
+                .then(response => (response.data)));
+                yield put(getRandomCocktails(data));
+            }
+            catch {
+                throw new Error('Error fetching random cocktails data');
+            }
         }
     );
 }
