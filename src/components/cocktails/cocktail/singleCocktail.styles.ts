@@ -1,23 +1,25 @@
 import styled from 'styled-components';
 import { fontSize } from '../../common/styles';
 
-export const CocktailContainer = styled.div`
+export const Container = styled.div`
     width: 100%;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
+    column-gap: 1.5rem;
 `;
 
 export const PictureBox = styled.div`
     width: 400px;
+`;
+
+export const DescriptionBox = styled.div`
+    width: 100%;
+`;
+
+export const Name = styled.h2`
+    font-size: ${fontSize.fontXL};
     text-align: center;
-`;
-
-export const InstructionBox = styled.div`
-`;
-
-export const CocktailName = styled.h2`
-    font-size: ${fontSize.fontL};
 `;
 
 export const Picture = styled.img`
@@ -26,47 +28,45 @@ export const Picture = styled.img`
     object-fit: cover;
 `;
 
-export const InstructionTitle = styled.h2`
+export const DescriptionTitle = styled.h2`
     font-size: ${fontSize.fontL};
-    text-align: center;
+    text-align: left;
 `;
 
-export const Instruction = styled.p`
-    font-size: ${fontSize.fontS};
+export const Description = styled.p`
+    font-size: ${fontSize.fontM};
     text-align: justify;
 `;
 
-export const IngredientsBox = styled.div`
-    width: 100%:
-    padding: 1rem;
-    text-align: center;
+export const GlassTitle = styled.h2`
+    font-size: ${fontSize.fontL};
+    text-align: left;
 `;
 
-export const IngredientsTitle = styled.h2`
+export const Glass = styled.p`
+    font-size: ${fontSize.fontM};
+    text-align: justify;
+`;
+
+export const Title = styled.h2`
     font-size: ${fontSize.fontL};
     text-align: center;
 `;
 
-export const IngredientsContainer = styled.div`
+export const ItemsContainer = styled.div`
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 1rem;
     flex-wrap: wrap;
 `;
 
-export const IngredientContainer = styled.div`
-    width: 300px;
-    background-color: ${props => props.theme.color.cardsBg};
-    cursor: pointer;
+export const TypeTitle = styled.h2`
+    font-size: ${fontSize.fontL};
+    text-align: left;
 `;
 
-export const IngredientImg = styled.img`
-    witdh: 300px;
-    height: 300px;
-    object-fit: cover;
-`;
-
-export const IngredientName = styled.h3`
+export const Type = styled.p`
     font-size: ${fontSize.fontM};
+    text-align: justify;
 `;

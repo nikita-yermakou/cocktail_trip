@@ -6,4 +6,7 @@ export const AppContainer = styled.div`
     background-color: ${props => props.theme.color.bg};
     color: ${props => props.theme.color.text};
     overflow-x: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 `;
+

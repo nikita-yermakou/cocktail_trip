@@ -1,10 +1,10 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { getRandomCocktails } from '../slices/randomCocktailsSlice';
 import { API_KEY, cocktailsApi } from '../../axios/api';
 import { ResponseGenerator } from './saga.interface';
+import { getCocktailsByLetters } from '../slices/cocktailsByLettersSlice';
 
-function* randomCocktailsSaga() {
-    yield takeEvery('randomCocktails/startRandomCocktails', 
+function* cocktailsByLettersSaga() {
+    yield takeEvery('cocktailsByLetters/startCocktailsByLetters', 
         function* ({payload}: any) {
             try {
                 const data: ResponseGenerator = yield call(async () => await cocktailsApi({
@@ -12,13 +12,13 @@ function* randomCocktailsSaga() {
                     url: `/${API_KEY}/${payload}`,
                 })
                 .then(response => (response.data)));
-                yield put(getRandomCocktails(data));
+                yield put(getCocktailsByLetters(data));
             }
             catch {
-                throw new Error('Error fetching random cocktails data');
+                throw new Error('Error fetching cocktails data on alphabet page');
             }
         }
     );
 }
 
-export default randomCocktailsSaga;
+export default cocktailsByLettersSaga;

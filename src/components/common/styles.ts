@@ -4,7 +4,7 @@ interface ColorIF {
     [key: string]: string
 }
 
-interface ThemeIF {
+export interface ThemeIF {
 
     [key: string]: string | {
         [key: string]: string

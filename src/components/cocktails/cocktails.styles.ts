@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { fontSize, fontFamily } from '../common/styles';
 
@@ -13,7 +14,7 @@ export const CocktailsWrap = styled.div`
 `;
 
 export const CocktailsTitle = styled.h2`
-    font-size: ${fontSize.fontL};
+    font-size: ${fontSize.fontXL};
 `;
 
 export const CocktailsContainer = styled.div`
@@ -24,11 +25,11 @@ export const CocktailsContainer = styled.div`
     gap: 1rem;
 `;
 
-
 export const CocktailContainer = styled.div`
     width: 300px;
     background-color: ${props => props.theme.color.cardsBg};
     cursor: pointer;
+    padding-bottom: .3rem;
 `;
 
 export const CocktailImg = styled.img`
@@ -39,9 +40,13 @@ export const CocktailImg = styled.img`
 
 export const Name = styled.h3`
     font-size: ${fontSize.fontM};
+    color: ${props => props.theme.color.text};
+    margin: .4rem;
+    text-align: center;
 `;
 
-export const Id = styled.p`
-    font-size: ${fontSize.fontS};
+export const CocktailLink = styled(Link)`
+    text-decoration: none;
 `;
+
 

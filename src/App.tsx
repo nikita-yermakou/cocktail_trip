@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import { ThemeProvider } from 'styled-components';
 import Header from './components/header/header';
 import { LightTheme, DarkTheme } from './components/common/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ThemeContext from './components/header/switcher/context';
-import Cocktails from './components/cocktails/Cocktails';
-import { useAppDispatch, useAppSelector } from './components/common/hooks';
-import { startRandomCocktails } from './redux/slices/randomCocktailsSlice';
-import { startPopCocktails } from './redux/slices/popCocktailsSlice';
 import HomePage from './pages/HomePage';
 import SingleCocktailPage from './pages/SingleCocktailPage';
 import { AppContainer } from './App.styles';
+import SingleIngredientPage from './pages/SIngleIngredientPage';
+import CocktailsPage from './pages/CocktailsPage';
+import AboutPage from './pages/AboutPage';
+import NotFoundPage from './pages/NotfoundPage';
+import Footer from './components/footer/footer';
 
 function App() {
   const [theme, setTheme] = useState(LightTheme);
@@ -25,12 +26,18 @@ function App() {
         <AppContainer>
           <BrowserRouter>
             <Routes>
-              <Route path='/' element={<Header title='COCKTAIL TRIP'/>}>
+              <Route path='/' element={
+                <>
+                  <Header title='COCKTAIL TRIP'/>
+                  <Footer text='Cocktail trip, 2023'/>
+                </>
+              }>
                 <Route path='/' element={<HomePage/>} />
-                <Route path='/cocktails' element={<div></div>} />
-                <Route path='/ingredients' element={<div></div>} />
-                <Route path='/about' element={<div></div>} />
+                <Route path='/cocktails/:letter' element={<CocktailsPage />} />
+                <Route path='/about' element={<AboutPage />} />
                 <Route path='/cocktail/:id' element={<SingleCocktailPage/>} />
+                <Route path='/ingredient/:name' element={<SingleIngredientPage/>} />
+                <Route path='*' element={<NotFoundPage/>} />
               </Route>
             </Routes>
           </BrowserRouter>
