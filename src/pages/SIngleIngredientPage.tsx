@@ -3,7 +3,9 @@ import SingleIngredient from "../components/ingredients/singleIngredient/singleI
 const SingleIngredientPage: React.FC = () => {
 
     return(
-        <SingleIngredient />
+        <>
+            <SingleIngredient />
+        </>
     )
 }
 

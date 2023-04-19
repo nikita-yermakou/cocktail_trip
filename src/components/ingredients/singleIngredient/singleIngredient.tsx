@@ -4,9 +4,12 @@ import { useAppDispatch, useAppSelector } from '../../common/hooks';
 import { Container, Name, ItemsContainer, Title, Description, DescriptionBox, DescriptionTitle, Picture, PictureBox, TypeTitle, Type } from '../../cocktails/cocktail/singleCocktail.styles';
 import { startIngredient } from '../../../redux/slices/ingredientSlice';
 import { startCocktailsByIngredient } from '../../../redux/slices/cocktailsByIngredientSlice';
-import Cocktail from '../../cocktails/cocktail';
+import { MCocktail } from '../../cocktails/cocktail';
 import { CocktailLink } from '../../cocktails/cocktails.styles';
 import Loader from '../../loader/loader';
+import { elementAnimation } from '../../common/animation/animation';
+import { motion } from 'framer-motion';
+import RecentlyViewed from '../recentlyViewed/recentlyViewed';
 
 const SingleIngredient: React.FC = () => {
     const {name} = useParams();
@@ -21,6 +24,8 @@ const SingleIngredient: React.FC = () => {
     const ingredient = useAppSelector((state) => state.ingredient.ingredient);
     const cocktailsByIngredient = useAppSelector((state: any) => state.cocktailsByIngredient.cocktailsByIngredient).drinks;
     const loading = useAppSelector((state) => state.ingredient.isLoading);
+    const previosly: any = localStorage.getItem('recentlyViewed');
+    const recentlyViewed = JSON.parse(previosly);
 
     return(
         <>
@@ -44,16 +49,25 @@ const SingleIngredient: React.FC = () => {
                 <Title>Cocktails</Title>
                 <Container>
                     <ItemsContainer>
-                        {cocktailsByIngredient?.map((item: any) => (
+                        {cocktailsByIngredient?.map((item: any, index: number) => (
                         <>
                             <CocktailLink to={`/cocktail/${item.idDrink}`} key={item.idDrink}>
-                                <Cocktail name={item.strDrink} id={item.idDrink} img={item.strDrinkThumb}/>
+                                <motion.div
+                                    initial='hidden'
+                                    whileInView='visible'
+                                    viewport={{once: true}}
+                                >
+                                    <MCocktail custom={index} variants={elementAnimation} name={item.strDrink} id={item.idDrink} img={item.strDrinkThumb}/>
+                                </motion.div>
                             </CocktailLink>
                         </> ))}
                     </ItemsContainer>
                 </Container>
             </>
         ))}
+        {recentlyViewed && 
+            <RecentlyViewed store={recentlyViewed} title='Recently viewed cocktails'/>
+        }
         </>
         }
         </>

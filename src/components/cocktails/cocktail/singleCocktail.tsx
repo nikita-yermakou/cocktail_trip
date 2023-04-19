@@ -1,14 +1,18 @@
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { startCocktail } from '../../../redux/slices/cocktailSlice';
-import { useAppDispatch, useAppSelector } from '../../common/hooks';
-import Ingredient from '../../ingredients/ingredient/ingredient';
+import { useAppDispatch, useAppSelector, useRecentlyViewed } from '../../common/hooks';
+import { MIngredient } from '../../ingredients/ingredient/ingredient';
 import { IngredientLink } from '../../ingredients/ingredient/ingredient.styles';
 import Loader from '../../loader/loader';
 import { Container, Name, Glass, GlassTitle, ItemsContainer, Title, Description, DescriptionBox, DescriptionTitle, Picture, PictureBox } from './singleCocktail.styles';
+import { motion } from 'framer-motion';
+import { elementAnimation } from '../../common/animation/animation';
+import RecentlyViewed from '../../ingredients/recentlyViewed/recentlyViewed';
 
 const SingleCocktail: React.FC = () => {
     const {id} = useParams();
+    const [recentlyViewed, addRecentlyViewed] = useRecentlyViewed([], 'recentlyViewed');
 
     const dispatch = useAppDispatch();
 
@@ -26,6 +30,7 @@ const SingleCocktail: React.FC = () => {
         <>
             {cocktail?.map((item: any) => (
             <>  
+                {addRecentlyViewed(item)}
                 <Name>{item.strDrink}</Name>
                 <Container>
                     <PictureBox>
@@ -41,19 +46,27 @@ const SingleCocktail: React.FC = () => {
                 <Title>Ingredients</Title>
                 <Container>
                     <ItemsContainer>
-                        {Object.keys(item)?.map((key) => ((key.slice(0, 13) === 'strIngredient' && item[key] != null)) && 
+                        {Object.keys(item)?.map((key, index: number) => ((key.slice(0, 13) === 'strIngredient' && item[key] != null)) && 
                         <>
                             <IngredientLink to={`/ingredient/${item[key]}`} key={item[key]}>
-                                <Ingredient name={item[key]} measure={item[`strMeasure` + key.slice(13)]}/>
+                                <motion.div
+                                    initial='hidden'
+                                    whileInView='visible'
+                                    viewport={{ amount: 0.3, once: true }}
+                                >
+                                    <MIngredient custom={index} variants={elementAnimation} name={item[key]} measure={item[`strMeasure` + key.slice(13)]}/>
+                                </motion.div>
                             </IngredientLink>
                         </> )}
                     </ItemsContainer>
                 </Container>
             </>
         ))}
-        </>
+        {recentlyViewed && 
+            <RecentlyViewed store={recentlyViewed} title='Recently viewed cocktails'/>
         }
-        
+        </>
+        }  
         </>
     )
 }
