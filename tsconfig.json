@@ -20,7 +20,22 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "exclude": [
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts",
+    "node_modules",
+    "obj",
+    "**/*.spec.ts"
+  ],
   "include": [
-    "src"
+    "src",
+    "src/**/*.ts",
+    "@types/**/*.d.ts",
+    "node_modules/axios",
+    "node_modules/redux-thunk"
   ]
 }

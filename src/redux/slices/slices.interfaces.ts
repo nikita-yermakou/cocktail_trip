@@ -28,6 +28,10 @@ export interface CocktailsByIngredientStateIF {
     isLoading: boolean
 }
 
+export interface RecentlyViewedIF {
+    recentlyViewed: []
+}
+
 export interface CocktailIF {
     idDrink?: string,
     strDrink?: string,

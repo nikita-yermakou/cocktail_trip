@@ -1,4 +1,4 @@
-import { configureStore, PayloadAction } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { popCocktailsReducer } from '../slices/popCocktailsSlice';
 import createSagaMiddleware from "@redux-saga/core";
 import { randomCocktailsReducer } from "../slices/randomCocktailsSlice";
