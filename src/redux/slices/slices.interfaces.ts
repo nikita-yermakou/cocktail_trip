@@ -32,6 +32,17 @@ export interface RecentlyViewedIF {
     recentlyViewed: []
 }
 
+export interface UserSliceIF {
+    email: string | null,
+    token: string | null,
+    id: string | null,
+    check: string | null
+}
+
+export interface AuthErrorSliceIF {
+    error: string
+}
+
 export interface CocktailIF {
     idDrink?: string,
     strDrink?: string,

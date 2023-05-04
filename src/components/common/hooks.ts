@@ -6,7 +6,8 @@ import { ThemeIF } from './styles';
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-export const useLocalStorage = (initialValue: ThemeIF, key: string) => {
+//custom hook that create variable in local storage and assign it one value
+export const useLocalStorage = (initialValue: ThemeIF | string, key: string) => {
     const getValue = () => {
         const storage = localStorage.getItem(key);
 
@@ -15,7 +16,7 @@ export const useLocalStorage = (initialValue: ThemeIF, key: string) => {
         }
         return initialValue;
     }
-
+    
     const [value, setValue] = useState(getValue);
 
     useEffect(() => {
@@ -25,6 +26,7 @@ export const useLocalStorage = (initialValue: ThemeIF, key: string) => {
     return [value, setValue];
 }  
 
+//custom hook that create array, where will be stored data of cocktail. They will add after visit page of cocktail
 export const useRecentlyViewed = (initialValue: [], key: string) => {
     const getValue = () => {
         const storage = localStorage.getItem(key);
@@ -32,7 +34,7 @@ export const useRecentlyViewed = (initialValue: [], key: string) => {
         if (storage) {
             return JSON.parse(storage);
         }
-        return initialValue
+        return initialValue;
     }
 
     const [recentlyViewed, setRecentlyViewed] = useState<any>(getValue);

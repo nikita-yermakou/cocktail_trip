@@ -29,7 +29,8 @@ export const LightTheme: ThemeIF = {
         bg: '#f1c3d3',
         cardsBg: '#b8939f',
         text: '#232324',
-        underline: '#b8aec8'
+        underline: '#b8aec8',
+        error: '#FF8C00'
     }
 }
 
@@ -39,7 +40,8 @@ export const DarkTheme: ThemeIF = {
         bg: '#775395',
         cardsBg: '#3c345c',
         text: '#f7e2ee',
-        underline: '#775395'
+        underline: '#775395',
+        error: '#FF8C00'
     }
 }
 

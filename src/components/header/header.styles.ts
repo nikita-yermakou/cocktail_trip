@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { fontSize, fontFamily } from '../common/styles';
 import '../../index.css';
+import { SighBtn } from 'components/common/buttons';
 
 export const HeaderContainer = styled.div`
     width: 100%;
@@ -8,11 +9,12 @@ export const HeaderContainer = styled.div`
     background-color: ${props => props.theme.color.cardsBg};
     color: ${props => props.theme.color.text};
     font-size: ${fontSize.fontL};
-    font-family: ${fontFamily.JosefinSansRegular};
+    font-family: ${fontFamily.JosefinReg};
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: .5rem 2rem;
+    position: relative;
 `;
 
 export const TitleContainer = styled.div`
@@ -39,6 +41,8 @@ export const NavigationContainer = styled.div`
     height: 50px;
     display: flex;
     justify-content: space-between;
+    position: absolute;
+    left: calc(50% - 150px);
 `;
 
 export const SignContainer = styled.div`
@@ -49,7 +53,17 @@ export const SignContainer = styled.div`
 `;
 
 export const RightContainer = styled.div`
-    gap: 2rem;
+    gap: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: right;
+    align-items: center;
+`;
+
+export const AuthorizeText = styled.p`
+    font-size: ${fontSize.fontM};
+    white-space: nowrap;
+`;
+
+export const LogOutBtn = styled(SighBtn)`
+    border-radius: 20px;
 `;
