@@ -21,10 +21,10 @@ const Header = (props: HeaderProps): JSX.Element => {
         onAuthStateChanged(auth, (user: any) => {
             dispatch(
                 getUser({
-                    email: user.email,
-                    token: user.accessToken,
-                    id: user.uid,
-                    check: auth.currentUser
+                    email: auth.currentUser ? user.email : '',
+                    token: auth.currentUser ? user.accessToken : '',
+                    id: auth.currentUser ? user.uid : '',
+                    check: auth.currentUser ? auth.currentUser : ''
                 })
             );
         });
