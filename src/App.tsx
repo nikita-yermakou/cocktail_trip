@@ -1,9 +1,8 @@
-import { useEffect, useState, useRef } from 'react';
 import './App.css';
 import { ThemeProvider } from 'styled-components';
 import Header from './components/header/header';
 import { LightTheme, DarkTheme } from './components/common/styles';
-import { Route, ScrollRestoration, RouterProvider, createRoutesFromElements, createBrowserRouter } from 'react-router-dom';
+import { Route, RouterProvider, createRoutesFromElements, createBrowserRouter } from 'react-router-dom';
 import ThemeContext from './components/header/switcher/context';
 import HomePage from './pages/HomePage';
 import SingleCocktailPage from './pages/SingleCocktailPage';
@@ -14,6 +13,8 @@ import AboutPage from './pages/AboutPage';
 import NotFoundPage from './pages/NotfoundPage';
 import Footer from './components/footer/footer';
 import { useLocalStorage } from './components/common/hooks';
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
 
 
 function App() {
@@ -35,6 +36,8 @@ function App() {
         <Route path='/about' element={<AboutPage />} />
         <Route path='/cocktail/:id' element={<SingleCocktailPage/>} />
         <Route path='/ingredient/:name' element={<SingleIngredientPage/>} />
+        <Route path='/signin' element={<SignInPage />} />
+        <Route path='/signup' element={<SignUpPage />} />
         <Route path='*' element={<NotFoundPage/>} />
       </Route>
     )

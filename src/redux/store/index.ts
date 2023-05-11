@@ -12,6 +12,8 @@ import { cocktailsByIngredientReducer } from "../slices/cocktailsByIngredientSli
 import cocktailsByIngredientSaga from "../sagas/cocktailsByIngredientSaga";
 import { cocktailsByLettersReducer } from "../slices/cocktailsByLettersSlice";
 import cocktailsByLettersSaga from "../sagas/cocktailsByLettersSaga";
+import { userReducer } from "redux/slices/userSlice";
+import { authErrorReducer } from "redux/slices/authErrorSlice";
 
 const saga = createSagaMiddleware();
 
@@ -22,7 +24,9 @@ const store = configureStore({
         cocktail: cocktailReducer,
         ingredient: ingredientReducer,
         cocktailsByIngredient: cocktailsByIngredientReducer,
-        cocktailsByLetters: cocktailsByLettersReducer
+        cocktailsByLetters: cocktailsByLettersReducer,
+        user: userReducer,
+        error: authErrorReducer
     },
     middleware: [saga]
 })

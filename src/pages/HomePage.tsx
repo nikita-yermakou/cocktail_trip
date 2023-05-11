@@ -6,6 +6,7 @@ import Video from '../components/video/video';
 import { startPopCocktails } from '../redux/slices/popCocktailsSlice';
 import { startRandomCocktails } from '../redux/slices/randomCocktailsSlice';
 import RecentlyViewed from '../components/ingredients/recentlyViewed/recentlyViewed';
+import { getAuth } from 'firebase/auth';
 
 const HomePage: React.FC = () => {
     const dispatch = useAppDispatch();

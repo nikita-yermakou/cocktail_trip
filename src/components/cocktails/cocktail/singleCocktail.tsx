@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { startCocktail } from '../../../redux/slices/cocktailSlice';
 import { useAppDispatch, useAppSelector, useRecentlyViewed } from '../../common/hooks';
@@ -18,7 +18,7 @@ const SingleCocktail: React.FC = () => {
 
     useEffect(() => {
         dispatch(startCocktail(`lookup.php?i=${id}`));
-    }, []);
+    }, [id]);
 
     const cocktail = useAppSelector((state: any) => state.cocktail.cocktail).drinks;
     const loading = useAppSelector((state) => state.cocktail.isLoading);
