@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { AuthorizeText, HeaderContainer, LogOutBtn, NavigationContainer, RightContainer, SignContainer, TitleContainer, TitleIcon, TitleText } from './header.styles';
+import { AuthorizeText, HeaderContainer, LogOutBtn, NavigationContainer, RightContainer, SignContainer} from './header.styles';
 import { Img } from '../common/styles';
 import NavButton from './btns/btns';
 import SignUp from './btns/signUp';
@@ -10,6 +10,7 @@ import { HeaderProps } from './header.interface';
 import { useAppDispatch, useAppSelector } from 'components/common/hooks';
 import { getUser, removeUser } from 'redux/slices/userSlice';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import LogoBtn from './btns/logoBtn';
 
 const Header = (props: HeaderProps): JSX.Element => {
 
@@ -38,10 +39,7 @@ const Header = (props: HeaderProps): JSX.Element => {
     return(
         <>
             <HeaderContainer>
-                <TitleContainer>
-                    <TitleIcon src={Img.IconHeader}/>
-                    <TitleText>{props.title}</TitleText>
-                </TitleContainer>
+                <LogoBtn to='/' img={Img.IconHeader} title={props.title}/>
                 <NavigationContainer>
                     <NavButton to='/' text='Home'/>
                     <NavButton to={`/cocktails/${`a`}`} text='Cocktails'/>

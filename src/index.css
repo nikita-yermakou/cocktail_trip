@@ -48,6 +48,11 @@
   src: url(./components/common/fonts/Unbounded-Black.ttf);
 }
 
+@font-face {
+  font-family: 'CaveatVariable';
+  src: url(./components/common/fonts/Caveat-VariableFont_wght.ttf);
+}
+
 * {
   box-sizing: border-box;
 }

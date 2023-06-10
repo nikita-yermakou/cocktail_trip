@@ -1,13 +1,23 @@
-import React, { useContext } from 'react';
-import { SwitcherImg } from "./switcher.styles";
-import { Img } from '../../common/styles';
+import React from 'react';
+import { SwitcherBall, SwitcherBox } from "./switcher.styles";
 import { useTheme } from './context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon } from '@fortawesome/free-regular-svg-icons';
+import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
 
 const Switcher: React.FC = () => {
     const currentContext = useTheme();
 
     return(
-        <SwitcherImg onClick={currentContext.switcher} src={currentContext.theme.name === 'light' ? Img.IconMoon : Img.IconSun}/>
+        <>
+            <SwitcherBox onClick={currentContext.switcher}>
+                <SwitcherBall>
+                    {currentContext.theme.name === 'light' 
+                    ? <FontAwesomeIcon icon={faMoon} />
+                    : <FontAwesomeIcon icon={faCloudSun} />}
+                </SwitcherBall>
+            </SwitcherBox>
+        </>
     )
 }
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface ColorIF {
     [key: string]: string
 }
@@ -26,22 +24,30 @@ interface ImgIF {
 export const LightTheme: ThemeIF = {
     name: 'light',
     color: {
-        bg: '#f1c3d3',
-        cardsBg: '#b8939f',
-        text: '#232324',
-        underline: '#b8aec8',
-        error: '#FF8C00'
+        bg: '#acbaa0',
+        cardsBg: '#dedbbc',
+        titleText: '#ba2d7f',
+        text: '#1C1C1C',
+        underline: '#1C1C1C',
+        error: '#d47a1c',
+        activeButton: '#ba2d7f',
+        button: '#94a685',
+        switcher: '#9449cc'
     }
 }
 
 export const DarkTheme: ThemeIF = {
     name: 'dark',
     color: {
-        bg: '#775395',
-        cardsBg: '#3c345c',
-        text: '#f7e2ee',
-        underline: '#775395',
-        error: '#FF8C00'
+        bg: '#03112b',
+        cardsBg: '#071b3e',
+        titleText: '#64ffdb',
+        text: '#cdd7f6',
+        underline: '#3e8272',
+        error: '#f062b5',
+        activeButton: '#f062b5',
+        button: '#002355',
+        switcher: '#f062b5'
     }
 }
 
@@ -62,13 +68,12 @@ export const fontFamily: FontFamilyIF = {
     UnbReg: 'UnboundedRegular',
     UnbBold: 'UnboundedBold',
     UnbLight: 'UnboundedLight',
-    UnbBlack: 'UnboundedBlack'
+    UnbBlack: 'UnboundedBlack',
+    CaveatBold: 'CaveatVariable'
 }
 
 export const Img: ImgIF = {
-    IconHeader: require('./img/icon-cocktail.png'),
-    IconMoon: require('./img/moon.png'),
-    IconSun: require('./img/sun.png')
+    IconHeader: require('./img/logo.png')
 }
 
 export const color: ColorIF = {

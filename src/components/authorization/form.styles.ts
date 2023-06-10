@@ -39,6 +39,7 @@ export const FormField = styled.input`
 
 export const FormRedirect = styled.p`
     font-size: ${fontSize.fontM};
+    color: ${props => props.theme.color.titleText};
     margin: .7rem 0;
 `;
 
@@ -52,6 +53,19 @@ export const SendBtn = styled(SighBtn)`
     font-size: ${fontSize.fontL};
     margin: 1.5rem 0 1rem;
     font-family: ${fontFamily.JosefinReg};
+
+    &:disabled {
+        opacity: 0.5;
+    }
+
+    &:enabled {
+        opacity: 1;
+
+        &:hover {
+            color: ${props => props.theme.color.button};
+            background-color: ${props => props.theme.color.activeButton};
+        }
+    }
 `;
 
 export const FormError = styled.div`

@@ -15,6 +15,7 @@ export const RVWrap = styled.div`
 
 export const RVTitle = styled.h2`
     font-size: ${fontSize.fontXL};
+    color: ${props => props.theme.color.titleText};
 `;
 
 export const RVContainer = styled.div`
@@ -31,6 +32,11 @@ export const RVItemContainer = styled.div`
     background-color: ${props => props.theme.color.cardsBg};
     cursor: pointer;
     padding-bottom: .3rem;
+    color: ${props => props.theme.color.text};
+
+    &:hover {
+        color: ${props => props.theme.color.error};
+    }
 `;
 
 export const RVItemImg = styled.img`
@@ -41,7 +47,6 @@ export const RVItemImg = styled.img`
 
 export const RVItemName = styled.h3`
     font-size: ${fontSize.fontM};
-    color: ${props => props.theme.color.text};
     margin: .4rem;
     text-align: center;
 `;
