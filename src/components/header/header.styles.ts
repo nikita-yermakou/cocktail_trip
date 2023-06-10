@@ -7,7 +7,6 @@ export const HeaderContainer = styled.div`
     width: 100%;
     height: 70px;
     background-color: ${props => props.theme.color.cardsBg};
-    color: ${props => props.theme.color.text};
     font-size: ${fontSize.fontL};
     font-family: ${fontFamily.JosefinReg};
     display: flex;
@@ -15,25 +14,6 @@ export const HeaderContainer = styled.div`
     align-items: center;
     padding: .5rem 2rem;
     position: relative;
-`;
-
-export const TitleContainer = styled.div`
-    width: 240px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-`;
-
-export const TitleIcon = styled.img`
-    width: 60px;
-    height: 60px;
-`;
-
-export const TitleText = styled.h3`
-    font-family: ${fontFamily.UnbBold};
-    font-size: ${fontSize.fontL};
 `;
 
 export const NavigationContainer = styled.div`
@@ -66,4 +46,9 @@ export const AuthorizeText = styled.p`
 
 export const LogOutBtn = styled(SighBtn)`
     border-radius: 20px;
+
+    &:hover {
+        color: ${props => props.theme.color.button};
+        background-color: ${props => props.theme.color.activeButton};
+    }
 `;

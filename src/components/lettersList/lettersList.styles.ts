@@ -19,11 +19,11 @@ export const LinkLetter: any = styled(Link)`
     text-decoration: none;
 
     &:hover {
-        color: ${'red'};
+        color: ${props => props.theme.color.error};
     }
 
     &:focus {
-        color: ${'red'};
+        color: ${props => props.theme.color.error};
     }
 `;
 

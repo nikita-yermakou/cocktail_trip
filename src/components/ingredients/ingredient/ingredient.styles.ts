@@ -9,6 +9,11 @@ export const IngredientContainer = styled.div`
     background-color: ${props => props.theme.color.cardsBg};
     cursor: pointer;
     padding-bottom: .2rem;
+    color: ${props => props.theme.color.text};
+
+    &:hover {
+        color: ${props => props.theme.color.error};
+    }
 `;
 
 export const IngredientImg = styled.img`
@@ -20,7 +25,6 @@ export const IngredientImg = styled.img`
 export const IngredientName = styled.h3`
     font-size: ${fontSize.fontL};
     text-align: center;
-    color: ${props => props.theme.color.text};
     margin: .4rem;
 `;
 

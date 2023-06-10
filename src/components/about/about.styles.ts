@@ -8,6 +8,7 @@ export const AboutContainer = styled.div`
 
 export const AboutTitle = styled.h2`
     font-size: ${fontSize.fontXL};
+    color: ${props => props.theme.color.text};
     text-align: center;
     margin: 0;
 `;

@@ -1,7 +1,6 @@
 import { HeaderNavBtn } from './btns.styles';
 import { NavLink } from 'react-router-dom';
 import { NavBtn } from '../../common/buttons';
-import { DarkTheme, ThemeIF } from '../../common/styles';
 import { BtnProps } from './btns.interface';
 
 const NavButton = (props: BtnProps) => {
