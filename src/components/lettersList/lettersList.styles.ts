@@ -13,7 +13,7 @@ export const LettersContainer = styled.div`
 `;
 
 export const LinkLetter: any = styled(Link)`
-    font-size: ${fontSize.fontL};
+    font-size: ${fontSize.fontS};
     color: ${props => props.theme.color.text};
     margin: 0 .5rem;
     text-decoration: none;

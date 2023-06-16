@@ -32,7 +32,7 @@ export const LightTheme: ThemeIF = {
         error: '#d47a1c',
         activeButton: '#ba2d7f',
         button: '#94a685',
-        switcher: '#9449cc'
+        switcher: '#6a82f7'
     }
 }
 
@@ -52,7 +52,9 @@ export const DarkTheme: ThemeIF = {
 }
 
 export const fontSize: FontSizeIF = {
-    fontS: '0.8rem',
+    fontXXS: '0.6rem',
+    fontXS: '0.8rem',
+    fontS: '1rem',
     fontM: '1.2rem',
     fontL: '1.5rem',
     fontXL: '2rem'

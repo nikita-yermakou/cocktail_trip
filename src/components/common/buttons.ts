@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { fontFamily, fontSize, color } from './styles';
+import { device } from './breakpoints';
 
 export const NavBtn = styled.button`
     line-height: 50px;
     border: 0;
     font-family: ${fontFamily.JosefinBold};
-    font-size: ${fontSize.fontM};
-    height: 50px;
+    font-size: ${fontSize.fontS};
+    height: 40px;
     color: ${props => props.theme.color.titleText};
     transition: .2s;
     background-color: ${color.transparent};
@@ -25,9 +26,9 @@ export const NavBtn = styled.button`
 
 export const SighBtn = styled.button`
     white-space: nowrap;
-    height: 40px;
+    height: 30px;
     font-family: ${fontFamily.UnbReg};
-    font-size: ${fontSize.fontS};
+    font-size: ${fontSize.fontXXS};
     color: ${props => props.theme.color.activeButton};
     transition: .2s;
     background-color: ${props => props.theme.color.button};
@@ -39,6 +40,11 @@ export const LeftSignBtn = styled(SighBtn)`
     border-radius: 20px 0 0 20px;
     margin-right: -1px;
 
+    @media ${device.tabletL} {
+        border-radius: 20px;
+        width: 250px;
+    }
+
     &:hover {
         color: ${props => props.theme.color.button};
         background-color: ${props => props.theme.color.activeButton};
@@ -47,6 +53,11 @@ export const LeftSignBtn = styled(SighBtn)`
 
 export const RightSignBtn = styled(SighBtn)`
     border-radius: 0 20px 20px 0;
+
+    @media ${device.tabletL} {
+        border-radius: 20px;
+        width: 250px;
+    }
 
     &:hover {
         color: ${props => props.theme.color.button};

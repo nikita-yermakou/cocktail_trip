@@ -1,4 +1,3 @@
-import React from 'react';
 import { LogoBtnLink, TitleContainer, TitleIcon, TitleText } from './btns.styles';
 import { LogoBtnProps } from './btns.interface';
 

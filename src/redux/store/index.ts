@@ -14,6 +14,7 @@ import { cocktailsByLettersReducer } from "../slices/cocktailsByLettersSlice";
 import cocktailsByLettersSaga from "../sagas/cocktailsByLettersSaga";
 import { userReducer } from "redux/slices/userSlice";
 import { authErrorReducer } from "redux/slices/authErrorSlice";
+import { burgerMenuStateReducer } from "redux/slices/burgerMenuSlice";
 
 const saga = createSagaMiddleware();
 
@@ -26,7 +27,8 @@ const store = configureStore({
         cocktailsByIngredient: cocktailsByIngredientReducer,
         cocktailsByLetters: cocktailsByLettersReducer,
         user: userReducer,
-        error: authErrorReducer
+        error: authErrorReducer,
+        burgerMenuState: burgerMenuStateReducer
     },
     middleware: [saga]
 })
