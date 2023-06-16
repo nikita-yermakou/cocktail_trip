@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { fontSize, fontFamily } from '../common/styles';
+import { device } from 'components/common/breakpoints';
 
 export const CocktailsWrap = styled.div`
     width: 100%;
@@ -14,8 +15,12 @@ export const CocktailsWrap = styled.div`
 `;
 
 export const CocktailsTitle = styled.h2`
-    font-size: ${fontSize.fontXL};
+    font-size: ${fontSize.fontL};
     color: ${props => props.theme.color.titleText};
+
+    @media ${device.mobileL} {
+        font-size: ${fontSize.fontM};
+    }
 `;
 
 export const CocktailsContainer = styled.div`
@@ -27,28 +32,49 @@ export const CocktailsContainer = styled.div`
 `;
 
 export const CocktailContainer = styled.div`
-    width: 300px;
-    min-height: 370px;
+    max-width: 200px;
+    min-height: 265px;
     background-color: ${props => props.theme.color.cardsBg};
     cursor: pointer;
     padding-bottom: .3rem;
     color: ${props => props.theme.color.text};
-    
+
+    @media ${device.mobileL} {
+        max-width: 148px;
+        min-height: 213px;
+    }
+
+    @media ${device.mobileS} {
+        max-width: 200px;
+        width: 200px;
+        height: 265px;
+    }
+
     &:hover {
         color: ${props => props.theme.color.error};
     }
 `;
 
 export const CocktailImg = styled.img`
-    witdh: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+
+    @media ${device.mobileS} {
+
+        width: 200px;
+        height: 200px;
+    }
 `;
 
 export const Name = styled.h3`
-    font-size: ${fontSize.fontM};
+    font-size: ${fontSize.fontS};
     margin: .4rem;
     text-align: center;
+
+    @media ${device.mobileL} {
+        font-size: ${fontSize.fontS};
+    }
 `;
 
 export const CocktailLink = styled(Link)`

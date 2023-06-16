@@ -43,6 +43,10 @@ export interface AuthErrorSliceIF {
     error: string
 }
 
+export interface burgerMenuStateIF {
+    burgerMenuState: boolean
+}
+
 export interface CocktailIF {
     idDrink?: string,
     strDrink?: string,

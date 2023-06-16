@@ -12,7 +12,7 @@ import CocktailsPage from './pages/CocktailsPage';
 import AboutPage from './pages/AboutPage';
 import NotFoundPage from './pages/NotfoundPage';
 import Footer from './components/footer/footer';
-import { useLocalStorage } from './components/common/hooks';
+import { useAppSelector, useLocalStorage } from './components/common/hooks';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 
@@ -22,6 +22,7 @@ function App() {
   const switcherTheme = () => {
     theme.name === LightTheme.name ? setTheme(DarkTheme) : setTheme(LightTheme);
   }
+  const {burgerMenuState} = useAppSelector(state => state.burgerMenuState);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -46,7 +47,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{theme: theme, switcher: switcherTheme}}>
       <ThemeProvider theme={theme}>
-        <AppContainer>
+        <AppContainer burgerState={burgerMenuState}>
           <RouterProvider router={router} />
         </AppContainer>
       </ThemeProvider>

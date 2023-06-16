@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface DeviceSizeIF {
     [key: string]: string
 }
@@ -7,17 +5,19 @@ interface DeviceSizeIF {
 const screenSize: DeviceSizeIF = {
     mobileS: '360px',
     mobileL: '540px',
-    tablet: '768px',
+    tabletS: '768px',
+    tabletL: '900px',
     laptop: '1024px',
     desctop: '1280px'
 }
 
 export const device: DeviceSizeIF = {
-    mobileS: `(min-width: ${screenSize.mobileS})`,
-    mobileL: `(min-width: ${screenSize.mobileL})`,
-    tablet: `(min-width: ${screenSize.tablet})`,
-    laptop: `(min-width: ${screenSize.laptop})`,
-    desctop: `(min-width: ${screenSize.desctop})`
+    mobileS: `(max-width: ${screenSize.mobileS})`,
+    mobileL: `(max-width: ${screenSize.mobileL})`,
+    tabletS: `(max-width: ${screenSize.tabletS})`,
+    tabletL: `(max-width: ${screenSize.tabletL})`,
+    laptop: `(max-width: ${screenSize.laptop})`,
+    desctop: `(max-width: ${screenSize.desctop})`
 }
 
 

@@ -7,7 +7,7 @@ export const AboutContainer = styled.div`
 `;
 
 export const AboutTitle = styled.h2`
-    font-size: ${fontSize.fontXL};
+    font-size: ${fontSize.fontL};
     color: ${props => props.theme.color.text};
     text-align: center;
     margin: 0;
@@ -18,5 +18,5 @@ export const AboutText = styled.p`
     margin: 1rem auto;
     text-align: justify;
     color: ${props => props.theme.color.text};
-    font-size: ${fontSize.fontM};
+    font-size: ${fontSize.fontS};
 `;

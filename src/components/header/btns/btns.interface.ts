@@ -8,3 +8,8 @@ export interface LogoBtnProps {
     img: string,
     title: string
 }
+
+export interface BurgerMenuBtnProps {
+    check: boolean,
+    onClick(): void
+}
